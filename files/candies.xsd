@@ -4,64 +4,74 @@
         targetNamespace="http://www.example.com/candies"
         xmlns:tns="http://www.example.com/candies"
         elementFormDefault="qualified">
+
     <element name="candies">
         <complexType>
             <sequence>
-                <element name="candy" type="tns:Candy" minOccurs="1"
-                         maxOccurs="unbounded"/>
+                <element name="candy" type="tns:Candy" minOccurs="1" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
 
     <complexType name="Candy">
         <sequence>
-            <element name="name" type="string"/>
-            <element name="energy" type="positiveInteger"/>
+            <element name="energy" type="tns:Energy"/>
             <element name="date" type="date"/>
             <element name="production" type="string"/>
             <element name="value" type="tns:Value"/>
-            <element name="ingredients" type="tns:ingredientslist"/>
+            <element name="ingredients" type="tns:Ingredients" maxOccurs="unbounded" minOccurs="0"/>
         </sequence>
         <attribute name="brand" type="tns:Brand" use="required"/>
-        <attribute name="type" use="optional" default="chocolate">
-            <simpleType>
-                <restriction base="string">
-                    <enumeration value="chocolate"></enumeration>
-                    <enumeration value="caramel"></enumeration>
-                    <enumeration value="toffee"></enumeration>
-                    <enumeration value="stuffed"></enumeration>
-                    <enumeration value="unstuffed"></enumeration>
-                </restriction>
-            </simpleType>
-        </attribute>
+        <attribute name="type" type="tns:Type" use="optional" default="chocolate"/>
     </complexType>
 
     <simpleType name="Brand">
         <restriction base="ID">
-            <pattern value="([a-zA-Z])[a-zA-Z0-9]*"/>
+            <pattern value="[a-zA-Z0-9]+"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Type">
+        <restriction base="string">
+            <enumeration value="chocolate"/>
+            <enumeration value="chewy and fruit"/>
+            <enumeration value="caramel and lollipops"/>
+            <enumeration value="energy"/>
+            <enumeration value="holiday"/>
         </restriction>
     </simpleType>
 
     <complexType name="Value">
         <sequence>
-            <element name="protein" type="positiveInteger"/>
-            <element name="carbohydrates" type="positiveInteger"/>
-            <element name="fats" type="positiveInteger"/>
+            <element name="protein" type="tns:Gram"/>
+            <element name="carbohydrates" type="tns:Gram"/>
+            <element name="fats" type="tns:Gram"/>
         </sequence>
     </complexType>
 
-    <simpleType name="ingredientslist">
-        <list itemType="tns:ingredient"/>
-    </simpleType>
+    <complexType name="Gram">
+        <attribute name="gram" type="positiveInteger"/>
+    </complexType>
 
-    <simpleType name="ingredient">
-        <restriction base="string">
-            <enumeration value="water"></enumeration>
-            <enumeration value="sugar"></enumeration>
-            <enumeration value="fructose"></enumeration>
-            <enumeration value="vanilla"></enumeration>
-        </restriction>
-    </simpleType>
+    <complexType name="Ingredients">
+        <sequence>
+            <element name="water" type="tns:percent" />
+            <element name="sugar" type="tns:percent"/>
+            <element name="fructose" type="tns:percent"/>
+            <element name="vanilla" type="tns:percent"/>
+        </sequence>
+    </complexType>
 
+    <complexType name="percent">
+        <attribute name="percent" type="positiveInteger"/>
+    </complexType>
+
+    <complexType name="Energy">
+        <attribute name="calories" type="positiveInteger"/>
+    </complexType>
 
 </schema>
+
+
+
+

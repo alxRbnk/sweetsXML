@@ -1,4 +1,4 @@
-package com.rubnikovich.sweets.exception;
+package com.rubnikovich.candies.exception;
 
 public class SweetException extends Exception {
 
