@@ -46,41 +46,41 @@ public class ParserDOM {
         return document.getDocumentElement().getElementsByTagName(element);
     }
 
-    private Node buildNode(String element, int index){
+    private Node buildNode(String element, int index) {
         return buildNodeList(element).item(index);
     }
 
-    private NamedNodeMap buildNodeMap(String element, int number){
+    private NamedNodeMap buildNodeMap(String element, int number) {
         return buildNode(element, number).getAttributes();
     }
 
     private Candy buildCandy(int number) {
         Candy candy = new Candy();
-        candy.setBrand(buildNodeMap("candy",number).getNamedItem("brand").getNodeValue());
-        String stringType = buildNodeMap("candy",number).getNamedItem("type").getNodeValue();
+        candy.setBrand(buildNodeMap("candy", number).getNamedItem("brand").getNodeValue());
+        String stringType = buildNodeMap("candy", number).getNamedItem("type").getNodeValue();
         candy.setType(CandyType.valueOf(stringType.toUpperCase().strip().replaceAll(" ", "_")));
-        candy.setEnergy(Integer.parseInt(buildNodeMap("energy",number).getNamedItem("calories").getNodeValue()));
-        candy.setDate(LocalDate.parse(buildNode("date",number).getTextContent()));
-        candy.setProduction(buildNode("production",number).getTextContent());
+        candy.setEnergy(Integer.parseInt(buildNodeMap("energy", number).getNamedItem("calories").getNodeValue()));
+        candy.setDate(LocalDate.parse(buildNode("date", number).getTextContent()));
+        candy.setProduction(buildNode("production", number).getTextContent());
         candy.setValue(buildCandyValue(number));
         candy.setIngredients(builtIngredients(number));
         return candy;
     }
 
-    private Ingredients builtIngredients(int number){
+    private Ingredients builtIngredients(int number) {
         Ingredients ingredients = new Ingredients();
-        ingredients.setWater(Integer.parseInt(buildNodeMap("water",number).getNamedItem("percent").getNodeValue()));
-        ingredients.setSugar(Integer.parseInt(buildNodeMap("sugar",number).getNamedItem("percent").getNodeValue()));
+        ingredients.setWater(Integer.parseInt(buildNodeMap("water", number).getNamedItem("percent").getNodeValue()));
+        ingredients.setSugar(Integer.parseInt(buildNodeMap("sugar", number).getNamedItem("percent").getNodeValue()));
         ingredients.setFructose(Integer.parseInt(buildNodeMap("fructose", number).getNamedItem("percent").getNodeValue()));
-        ingredients.setVanilla(Integer.parseInt(buildNodeMap("vanilla",number).getNamedItem("percent").getNodeValue()));
+        ingredients.setVanilla(Integer.parseInt(buildNodeMap("vanilla", number).getNamedItem("percent").getNodeValue()));
         return ingredients;
     }
 
-    private CandyValue buildCandyValue(int number){
+    private CandyValue buildCandyValue(int number) {
         CandyValue candyValue = new CandyValue();
-        candyValue.setProtein(Integer.parseInt(buildNodeMap("protein",number).getNamedItem("gram").getNodeValue()));
-        candyValue.setCarbohydrates(Integer.parseInt(buildNodeMap("carbohydrates",number).getNamedItem("gram").getNodeValue()));
-        candyValue.setFats(Integer.parseInt(buildNodeMap("fats",number).getNamedItem("gram").getNodeValue()));
+        candyValue.setProtein(Integer.parseInt(buildNodeMap("protein", number).getNamedItem("gram").getNodeValue()));
+        candyValue.setCarbohydrates(Integer.parseInt(buildNodeMap("carbohydrates", number).getNamedItem("gram").getNodeValue()));
+        candyValue.setFats(Integer.parseInt(buildNodeMap("fats", number).getNamedItem("gram").getNodeValue()));
         return candyValue;
     }
 
