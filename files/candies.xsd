@@ -15,14 +15,14 @@
 
     <complexType name="Candy">
         <sequence>
-            <element name="energy" type="tns:Energy"/>
+            <element name="type" type="tns:Type" minOccurs="0" maxOccurs="1"/>
             <element name="date" type="date"/>
             <element name="production" type="string"/>
+            <element name="energy" type="positiveInteger"/>
             <element name="value" type="tns:Value"/>
-            <element name="ingredients" type="tns:Ingredients" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="ingredients" type="tns:Ingredients" maxOccurs="4" minOccurs="0"/>
         </sequence>
         <attribute name="brand" type="tns:Brand" use="required"/>
-        <attribute name="type" type="tns:Type" use="optional" default="chocolate"/>
     </complexType>
 
     <simpleType name="Brand">
@@ -43,31 +43,21 @@
 
     <complexType name="Value">
         <sequence>
-            <element name="protein" type="tns:Gram"/>
-            <element name="carbohydrates" type="tns:Gram"/>
-            <element name="fats" type="tns:Gram"/>
+            <element name="protein" type="positiveInteger"/>
+            <element name="carbohydrates" type="positiveInteger"/>
+            <element name="fats" type="positiveInteger"/>
         </sequence>
-    </complexType>
-
-    <complexType name="Gram">
-        <attribute name="gram" type="positiveInteger"/>
+        <attribute name="unit" type="string" use="optional" default="gram"/>
     </complexType>
 
     <complexType name="Ingredients">
         <sequence>
-            <element name="water" type="tns:percent" />
-            <element name="sugar" type="tns:percent"/>
-            <element name="fructose" type="tns:percent"/>
-            <element name="vanilla" type="tns:percent"/>
+            <element name="water" type="positiveInteger"/>
+            <element name="sugar" type="positiveInteger"/>
+            <element name="fructose" type="positiveInteger"/>
+            <element name="vanilla" type="positiveInteger"/>
         </sequence>
-    </complexType>
-
-    <complexType name="percent">
-        <attribute name="percent" type="positiveInteger"/>
-    </complexType>
-
-    <complexType name="Energy">
-        <attribute name="calories" type="positiveInteger"/>
+        <attribute name="unit" type="string" use="optional" default="percent"/>
     </complexType>
 
 </schema>

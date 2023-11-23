@@ -4,275 +4,291 @@
           xmlns="http://www.example.com/candies"
           xsi:schemaLocation="http://www.example.com/candies candies.xsd">
 
-    <candy brand="LiqueurFills" type="chocolate">
-        <energy calories="350"/>
+    <candy brand="LiqueurFills">
+        <type>chocolate</type>
         <date>2023-11-11</date>
         <production>Fazer</production>
-        <value>
-            <protein gram="7"/>
-            <carbohydrates gram="48"/>
-            <fats gram="17"/>
+        <energy>350</energy>
+        <value unit="gram">
+            <protein>7</protein>
+            <carbohydrates>48</carbohydrates>
+            <fats>17</fats>
         </value>
         <ingredients>
-            <water percent="41"/>
-            <sugar percent="38"/>
-            <fructose percent="4"/>
-            <vanilla percent="1"/>
+            <water>41</water>
+            <sugar>38</sugar>
+            <fructose>4</fructose>
+            <vanilla>1</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="Twix" type="chocolate">
-        <energy calories="470"/>
+    <candy brand="Twix">
+        <type>chocolate</type>
         <date>2023-10-12</date>
         <production>Mars Incorporated</production>
+        <energy>370</energy>
         <value>
-            <protein gram="3"/>
-            <carbohydrates gram="32"/>
-            <fats gram="15"/>
+            <protein>3</protein>
+            <carbohydrates>32</carbohydrates>
+            <fats>15</fats>
         </value>
         <ingredients>
-            <water percent="40"/>
-            <sugar percent="25"/>
-            <fructose percent="5"/>
-            <vanilla percent="1"/>
+            <water>40</water>
+            <sugar>25</sugar>
+            <fructose>5</fructose>
+            <vanilla>1</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="GoldCockerel" type="caramel and lollipops">
-        <energy calories="285"/>
+    <candy brand="GoldCockerel">
+        <type>caramel and lollipops</type>
         <date>2023-09-19</date>
         <production>Homemade</production>
-        <value>
-            <protein gram="5"/>
-            <carbohydrates gram="44"/>
-            <fats gram="13"/>
+        <energy>375</energy>
+        <value unit="gram">
+            <protein>5</protein>
+            <carbohydrates>44</carbohydrates>
+            <fats>13</fats>
         </value>
         <ingredients>
-            <water percent="47"/>
-            <sugar percent="21"/>
-            <fructose percent="2"/>
-            <vanilla percent="2"/>
+            <water>47</water>
+            <sugar>21</sugar>
+            <fructose>2</fructose>
+            <vanilla>2</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="Kinder" type="chocolate">
-        <energy calories="245"/>
+    <candy brand="Kinder">
+        <type>chocolate</type>
         <date>2023-11-02</date>
         <production>Ferrero</production>
-        <value>
-            <protein gram="6"/>
-            <carbohydrates gram="33"/>
-            <fats gram="22"/>
+        <energy>245</energy>
+        <value unit="gram">
+            <protein>6</protein>
+            <carbohydrates>33</carbohydrates>
+            <fats>22</fats>
         </value>
         <ingredients>
-            <water percent="44"/>
-            <sugar percent="45"/>
-            <fructose percent="1"/>
-            <vanilla percent="2"/>
+            <water>44</water>
+            <sugar>45</sugar>
+            <fructose>1</fructose>
+            <vanilla>2</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="KitKat" type="chocolate">
-        <energy calories="460"/>
+    <candy brand="KitKat">
+        <type>chocolate</type>
         <date>2023-11-06</date>
-        <production>Nestle</production>
-        <value>
-            <protein gram="7"/>
-            <carbohydrates gram="55"/>
-            <fats gram="22"/>
+        <production>Ferrero</production>
+        <energy>460</energy>
+        <value unit="gram">
+            <protein>7</protein>
+            <carbohydrates>55</carbohydrates>
+            <fats>28</fats>
         </value>
         <ingredients>
-            <water percent="55"/>
-            <sugar percent="10"/>
-            <fructose percent="9"/>
-            <vanilla percent="8"/>
+            <water>55</water>
+            <sugar>10</sugar>
+            <fructose>9</fructose>
+            <vanilla>8</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="GummiBears" type="chewy and fruit">
-        <energy calories="510"/>
+    <candy brand="GummiBears">
+        <type>chewy and fruit</type>
         <date>2023-10-01</date>
         <production>Haribo</production>
-        <value>
-            <protein gram="7"/>
-            <carbohydrates gram="33"/>
-            <fats gram="21"/>
+        <energy>510</energy>
+        <value unit="gram">
+            <protein>11</protein>
+            <carbohydrates>33</carbohydrates>
+            <fats>43</fats>
         </value>
         <ingredients>
-            <water percent="40"/>
-            <sugar percent="33"/>
-            <fructose percent="2"/>
-            <vanilla percent="4"/>
+            <water>60</water>
+            <sugar>23</sugar>
+            <fructose>6</fructose>
+            <vanilla>11</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="ChupaChups" type="caramel and lollipops">
-        <energy calories="380"/>
+    <candy brand="ChupaChups">
+        <type>caramel and lollipops</type>
         <date>2023-11-13</date>
         <production>Perfetti Van Melle</production>
-        <value>
-            <protein gram="4"/>
-            <carbohydrates gram="31"/>
-            <fats gram="14"/>
+        <energy>124</energy>
+        <value unit="gram">
+            <protein>4</protein>
+            <carbohydrates>31</carbohydrates>
+            <fats>14</fats>
         </value>
         <ingredients>
-            <water percent="23"/>
-            <sugar percent="34"/>
-            <fructose percent="1"/>
-            <vanilla percent="2"/>
+            <water>23</water>
+            <sugar>34</sugar>
+            <fructose>1</fructose>
+            <vanilla>2</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="RitterSport" type="chocolate">
-        <energy calories="290"/>
+    <candy brand="RitterSport">
+        <type>chocolate</type>
         <date>2023-10-16</date>
         <production>Alfred Ritter</production>
-        <value>
-            <protein gram="10"/>
-            <carbohydrates gram="43"/>
-            <fats gram="23"/>
+        <energy>610</energy>
+        <value unit="gram">
+            <protein>10</protein>
+            <carbohydrates>43</carbohydrates>
+            <fats>23</fats>
         </value>
         <ingredients>
-            <water percent="41"/>
-            <sugar percent="33"/>
-            <fructose percent="23"/>
-            <vanilla percent="2"/>
+            <water>41</water>
+            <sugar>33</sugar>
+            <fructose>23</fructose>
+            <vanilla>2</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="GoldKey" type="caramel and lollipops">
-        <energy calories="450"/>
+    <candy brand="GoldKey">
+        <type>caramel and lollipops</type>
         <date>2023-11-13</date>
         <production>Red October</production>
-        <value>
-            <protein gram="13"/>
-            <carbohydrates gram="32"/>
-            <fats gram="12"/>
+        <energy>450</energy>
+        <value unit="gram">
+            <protein>13</protein>
+            <carbohydrates>32</carbohydrates>
+            <fats>12</fats>
         </value>
         <ingredients>
-            <water percent="31"/>
-            <sugar percent="36"/>
-            <fructose percent="3"/>
-            <vanilla percent="4"/>
+            <water>31</water>
+            <sugar>36</sugar>
+            <fructose>3</fructose>
+            <vanilla>4</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="MegaDrive" type="energy">
-        <energy calories="350"/>
+    <candy brand="MegaDrive">
+        <type>energy</type>
         <date>2023-11-10</date>
         <production>Red October</production>
-        <value>
-            <protein gram="4"/>
-            <carbohydrates gram="40"/>
-            <fats gram="21"/>
+        <energy>450</energy>
+        <value unit="gram">
+            <protein>4</protein>
+            <carbohydrates>40</carbohydrates>
+            <fats>21</fats>
         </value>
         <ingredients>
-            <water percent="42"/>
-            <sugar percent="43"/>
-            <fructose percent="5"/>
-            <vanilla percent="4"/>
+            <water>42</water>
+            <sugar>43</sugar>
+            <fructose>5</fructose>
+            <vanilla>9</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="NewYear" type="holiday">
-        <energy calories="520"/>
+    <candy brand="NewYear">
+        <type>holiday</type>
         <date>2023-11-13</date>
         <production>Morozoff</production>
-        <value>
-            <protein gram="6"/>
-            <carbohydrates gram="55"/>
-            <fats gram="21"/>
+        <energy>450</energy>
+        <value unit="gram">
+            <protein>6</protein>
+            <carbohydrates>55</carbohydrates>
+            <fats>20</fats>
         </value>
         <ingredients>
-            <water percent="14"/>
-            <sugar percent="66"/>
-            <fructose percent="6"/>
-            <vanilla percent="9"/>
+            <water>14</water>
+            <sugar>66</sugar>
+            <fructose>6</fructose>
+            <vanilla>9</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="Bounty" type="chocolate">
-        <energy calories="443"/>
-        <date>2023-08-11</date>
+    <candy brand="Bounty">
+        <type>chocolate</type>
+        <date>2023-11-13</date>
         <production>Mars Incorporated</production>
-        <value>
-            <protein gram="1"/>
-            <carbohydrates gram="39"/>
-            <fats gram="17"/>
+        <energy>443</energy>
+        <value unit="gram">
+            <protein>1</protein>
+            <carbohydrates>39</carbohydrates>
+            <fats>17</fats>
         </value>
         <ingredients>
-            <water percent="18"/>
-            <sugar percent="38"/>
-            <fructose percent="1"/>
-            <vanilla percent="9"/>
+            <water>18</water>
+            <sugar>38</sugar>
+            <fructose>1</fructose>
+            <vanilla>9</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="Mars" type="chocolate">
-        <energy calories="470"/>
+    <candy brand="Mars">
+        <type>chocolate</type>
         <date>2023-11-03</date>
         <production>Mars Incorporated</production>
-        <value>
-            <protein gram="9"/>
-            <carbohydrates gram="21"/>
-            <fats gram="14"/>
+        <energy>453</energy>
+        <value unit="gram">
+            <protein>9</protein>
+            <carbohydrates>21</carbohydrates>
+            <fats>14</fats>
         </value>
         <ingredients>
-            <water percent="48"/>
-            <sugar percent="27"/>
-            <fructose percent="3"/>
-            <vanilla percent="6"/>
+            <water>48</water>
+            <sugar>27</sugar>
+            <fructose>3</fructose>
+            <vanilla>6</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="Cherry" type="chocolate">
-        <energy calories="270"/>
+    <candy brand="Cherry">
+        <type>chocolate</type>
         <date>2023-11-02</date>
         <production>Spartak</production>
-        <value>
-            <protein gram="10"/>
-            <carbohydrates gram="42"/>
-            <fats gram="15"/>
+        <energy>459</energy>
+        <value unit="gram">
+            <protein>10</protein>
+            <carbohydrates>42</carbohydrates>
+            <fats>15</fats>
         </value>
         <ingredients>
-            <water percent="46"/>
-            <sugar percent="40"/>
-            <fructose percent="2"/>
-            <vanilla percent="1"/>
+            <water>46</water>
+            <sugar>40</sugar>
+            <fructose>2</fructose>
+            <vanilla>1</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="Mentos" type="chewy and fruit">
-        <energy calories="160"/>
+    <candy brand="Mentos">
+        <type>chewy and fruit</type>
         <date>2023-11-19</date>
         <production>Perfetti Van Melle</production>
-        <value>
-            <protein gram="1"/>
-            <carbohydrates gram="15"/>
-            <fats gram="3"/>
+        <energy>159</energy>
+        <value unit="gram">
+            <protein>1</protein>
+            <carbohydrates>15</carbohydrates>
+            <fats>3</fats>
         </value>
         <ingredients>
-            <water percent="40"/>
-            <sugar percent="25"/>
-            <fructose percent="5"/>
-            <vanilla percent="1"/>
+            <water>40</water>
+            <sugar>25</sugar>
+            <fructose>5</fructose>
+            <vanilla>1</vanilla>
         </ingredients>
     </candy>
 
-    <candy brand="TicTac" type="caramel and lollipops">
-        <energy calories="250"/>
+    <candy brand="TicTac">
+        <type>caramel and lollipops</type>
         <date>2023-11-19</date>
         <production>Ferrero</production>
-        <value>
-            <protein gram="3"/>
-            <carbohydrates gram="2"/>
-            <fats gram="15"/>
+        <energy>250</energy>
+        <value unit="gram">
+            <protein>3</protein>
+            <carbohydrates>2</carbohydrates>
+            <fats>15</fats>
         </value>
         <ingredients>
-            <water percent="35"/>
-            <sugar percent="1"/>
-            <fructose percent="5"/>
-            <vanilla percent="1"/>
+            <water>35</water>
+            <sugar>1</sugar>
+            <fructose>5</fructose>
+            <vanilla>1</vanilla>
         </ingredients>
     </candy>
 

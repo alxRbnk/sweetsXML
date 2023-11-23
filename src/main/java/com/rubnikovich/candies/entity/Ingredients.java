@@ -6,39 +6,49 @@ public class Ingredients {
     private int fructose;
     private int vanilla;
 
-    public Ingredients() {
+    private Ingredients() {
     }
 
-    public int getWater() {
-        return water;
+    public static BuilderIngredients newBuilderIngredients(){
+        return new Ingredients().new BuilderIngredients();
     }
 
     public void setWater(int water) {
         this.water = water;
     }
 
-    public int getSugar() {
-        return sugar;
-    }
-
     public void setSugar(int sugar) {
         this.sugar = sugar;
-    }
-
-    public int getFructose() {
-        return fructose;
     }
 
     public void setFructose(int fructose) {
         this.fructose = fructose;
     }
 
-    public int getVanilla() {
-        return vanilla;
-    }
-
     public void setVanilla(int vanilla) {
         this.vanilla = vanilla;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Ingredients that = (Ingredients) o;
+
+        if (water != that.water) return false;
+        if (sugar != that.sugar) return false;
+        if (fructose != that.fructose) return false;
+        return vanilla == that.vanilla;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = water;
+        result = 31 * result + sugar;
+        result = 31 * result + fructose;
+        result = 31 * result + vanilla;
+        return result;
     }
 
     @Override
@@ -51,4 +61,36 @@ public class Ingredients {
         sb.append('}');
         return sb.toString();
     }
+
+    public class BuilderIngredients{
+
+        private BuilderIngredients(){
+        }
+
+        public BuilderIngredients setWater(int water) {
+            Ingredients.this.water = water;
+            return this;
+        }
+
+        public BuilderIngredients setSugar(int sugar) {
+            Ingredients.this.sugar = sugar;
+            return this;
+        }
+
+        public BuilderIngredients setFructose(int fructose) {
+            Ingredients.this.fructose = fructose;
+            return this;
+        }
+
+        public BuilderIngredients setVanilla(int vanilla) {
+            Ingredients.this.vanilla = vanilla;
+            return this;
+        }
+
+        public Ingredients buildIngredients() {
+            return Ingredients.this;
+        }
+
+    }
+
 }
