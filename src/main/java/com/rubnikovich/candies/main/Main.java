@@ -1,10 +1,6 @@
 package com.rubnikovich.candies.main;
 
-import com.rubnikovich.candies.entity.Candy;
 import com.rubnikovich.candies.exception.CustomException;
-import com.rubnikovich.candies.parser.CandySaxBuilder;
-import com.rubnikovich.candies.parser.CustomHandler;
-import com.rubnikovich.candies.parser.CustomSAX;
 import com.rubnikovich.candies.parser.StaxBuilder;
 import com.rubnikovich.candies.validator.ValidatorSaxXsd;
 

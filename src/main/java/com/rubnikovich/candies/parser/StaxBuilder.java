@@ -34,36 +34,36 @@ public class StaxBuilder {
 
     public void buildSetCandies(String filename) throws CustomException {
         XMLStreamReader reader;
-        String name;
+        String title;
         try (FileInputStream inputStream = new FileInputStream(filename)) {
             reader = inputFactory.createXMLStreamReader(inputStream);
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
-                    name = reader.getLocalName();
-                    if (name.equals(CandyXmlNode.CANDY.getTitle())) {
+                    title = reader.getLocalName();
+                    if (title.equals(CandyXmlNode.CANDY.getTitle())) {
                         Candy candy = buildCandy(reader);
                         candies.add(candy);
                     }
                 }
             }
         } catch (XMLStreamException | IOException e) {
-            e.printStackTrace();
+            throw new CustomException(" ", e);
         }
     }
 
     private Candy buildCandy(XMLStreamReader reader) throws CustomException {
-        Candy candy = Candy.newBuilderCandy().buildCandy();
-        candy.setBrand(reader.getAttributeValue(null, CandyXmlNode.BRAND.getTitle()));
-        candy.setType(CandyType.valueOf((reader.getAttributeValue(null, CandyXmlNode.TYPE.getTitle()))
-                .toUpperCase().replaceAll(" ", "_")));
-        String name;
         try {
+            Candy candy = Candy.newBuilderCandy().buildCandy();
+            candy.setBrand(reader.getAttributeValue(null, CandyXmlNode.BRAND.getTitle()));
+            candy.setType(CandyType.valueOf((reader.getAttributeValue(null, CandyXmlNode.TYPE.getTitle()))
+                    .toUpperCase().replaceAll(" ", "_")));
+            String title;
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
-                    name = reader.getLocalName();
-                    switch (CandyXmlNode.valueOf(name.toUpperCase())) {
+                    title = reader.getLocalName();
+                    switch (CandyXmlNode.valueOf(title.toUpperCase())) {
                         case DATE -> candy.setDate(LocalDate.parse(getXMLText(reader)));
                         case PRODUCTION -> candy.setProduction(getXMLText(reader));
                         case ENERGY -> candy.setEnergy(Integer.parseInt(getXMLText(reader)));
@@ -71,8 +71,8 @@ public class StaxBuilder {
                         case VALUE -> candy.setValue(getXMLValue(reader));
                     }
                 } else if (type == XMLStreamConstants.END_ELEMENT) {
-                    name = reader.getLocalName();
-                    if (CandyXmlNode.valueOf(name.toUpperCase()) == CandyXmlNode.CANDY) {
+                    title = reader.getLocalName();
+                    if (CandyXmlNode.valueOf(title.toUpperCase()) == CandyXmlNode.CANDY) {
                         return candy;
                     }
                 }
@@ -84,16 +84,16 @@ public class StaxBuilder {
     }
 
     private Ingredients getXmlIngredients(XMLStreamReader reader) throws CustomException {
-        Ingredients ingredients = Ingredients.newBuilderIngredients().buildIngredients();
-        int type;
-        String name;
         try {
+            Ingredients ingredients = Ingredients.newBuilderIngredients().buildIngredients();
+            int type;
+            String title;
             while (reader.hasNext()) {
                 type = reader.next();
                 switch (type) {
                     case XMLStreamConstants.START_ELEMENT:
-                        name = reader.getLocalName();
-                        switch (CandyXmlNode.valueOf(name.toUpperCase())) {
+                        title = reader.getLocalName();
+                        switch (CandyXmlNode.valueOf(title.toUpperCase())) {
                             case WATER -> ingredients.setWater(Integer.parseInt(getXMLText(reader)));
                             case SUGAR -> ingredients.setSugar(Integer.parseInt(getXMLText(reader)));
                             case FRUCTOSE -> ingredients.setFructose(Integer.parseInt(getXMLText(reader)));
@@ -101,8 +101,8 @@ public class StaxBuilder {
                         }
                         break;
                     case XMLStreamConstants.END_ELEMENT:
-                        name = reader.getLocalName();
-                        if (CandyXmlNode.valueOf(name.toUpperCase()) == CandyXmlNode.INGREDIENTS) {
+                        title = reader.getLocalName();
+                        if (CandyXmlNode.valueOf(title.toUpperCase()) == CandyXmlNode.INGREDIENTS) {
                             return ingredients;
                         }
                 }
@@ -114,24 +114,24 @@ public class StaxBuilder {
     }
 
     private CandyValue getXMLValue(XMLStreamReader reader) throws CustomException {
-        CandyValue candyValue = CandyValue.newBuilderValue().buldCandyValue();
-        int type;
-        String name;
         try {
+            CandyValue candyValue = CandyValue.newBuilderValue().buldCandyValue();
+            int type;
+            String title;
             while (reader.hasNext()) {
                 type = reader.next();
                 switch (type) {
                     case XMLStreamConstants.START_ELEMENT:
-                        name = reader.getLocalName();
-                        switch (CandyXmlNode.valueOf(name.toUpperCase())) {
+                        title = reader.getLocalName();
+                        switch (CandyXmlNode.valueOf(title.toUpperCase())) {
                             case PROTEIN -> candyValue.setProtein(Integer.parseInt(getXMLText(reader)));
                             case CARBOHYDRATES -> candyValue.setCarbohydrates(Integer.parseInt(getXMLText(reader)));
                             case FATS -> candyValue.setFats(Integer.parseInt(getXMLText(reader)));
                         }
                         break;
                     case XMLStreamConstants.END_ELEMENT:
-                        name = reader.getLocalName();
-                        if (CandyXmlNode.valueOf(name.toUpperCase()) == CandyXmlNode.VALUE) {
+                        title = reader.getLocalName();
+                        if (CandyXmlNode.valueOf(title.toUpperCase()) == CandyXmlNode.VALUE) {
                             return candyValue;
                         }
                 }
