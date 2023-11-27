@@ -15,7 +15,6 @@
 
     <complexType name="Candy">
         <sequence>
-            <element name="type" type="tns:Type" minOccurs="0" maxOccurs="1"/>
             <element name="date" type="date"/>
             <element name="production" type="string"/>
             <element name="energy" type="positiveInteger"/>
@@ -23,6 +22,7 @@
             <element name="ingredients" type="tns:Ingredients" maxOccurs="4" minOccurs="0"/>
         </sequence>
         <attribute name="brand" type="tns:Brand" use="required"/>
+       <attribute name="type" type="tns:Type" use="required"/>
     </complexType>
 
     <simpleType name="Brand">

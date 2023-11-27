@@ -1,23 +1,28 @@
 package com.rubnikovich.candies.main;
 
+import com.rubnikovich.candies.entity.Candy;
 import com.rubnikovich.candies.exception.CustomException;
-import com.rubnikovich.candies.parser.ParserDOM;
+import com.rubnikovich.candies.parser.CandySaxBuilder;
+import com.rubnikovich.candies.parser.CustomHandler;
 import com.rubnikovich.candies.parser.CustomSAX;
+import com.rubnikovich.candies.parser.StaxBuilder;
 import com.rubnikovich.candies.validator.ValidatorSaxXsd;
 
 public class Main {
     public static void main(String[] args) throws CustomException {
-        ParserDOM parser = new ParserDOM();
-        parser.buildCandiesSet();
-//        parser.getCandies().forEach(System.out::println);
         ValidatorSaxXsd.validate();
 
-        CustomSAX parserSAX = new CustomSAX();
-        parserSAX.customParseSAX();
+//        ParserDOM parser = new ParserDOM();
+//        parser.buildCandiesSet();
+//        parser.getCandies().forEach(System.out::println);
 
+//        CandySaxBuilder saxBuilder = new CandySaxBuilder();
+//        saxBuilder.buildSetCandies("files/candies.xml");
+//        saxBuilder.getCandies().forEach(System.out::println);
 
-
-
+        StaxBuilder staxBuilder = new StaxBuilder();
+        staxBuilder.buildSetCandies("files/candies.xml");
+        staxBuilder.getCandies().forEach(System.out::println);
 
     }
 }

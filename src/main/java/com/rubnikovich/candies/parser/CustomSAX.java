@@ -11,14 +11,14 @@ import java.io.IOException;
 public class CustomSAX {
 
     private static final String PATH = "files/candies.xml";
-    SAXParserFactory factory = SAXParserFactory.newInstance();
-    SAXParser saxParser;
+    private SAXParserFactory factory = SAXParserFactory.newInstance();
+    private SAXParser saxParser;
 
     public CustomSAX() throws CustomException {
         try {
             saxParser = factory.newSAXParser();
         } catch (ParserConfigurationException e) {
-            throw new CustomException(" " + e); //fixme
+            throw new CustomException(" " + e);
         } catch (SAXException e) {
             throw new CustomException(" " + e);
         }

@@ -21,14 +21,14 @@ import java.util.Set;
 public class ParserDOM {
     private static final String PATH = "files/candies.xml";
     private Set<Candy> candies;
-    DocumentBuilder builder;
+    private DocumentBuilder builder;
 
     public ParserDOM() throws CustomException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             builder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            throw new CustomException("error configuration" + e);
+            throw new CustomException("error configuration", e);
         }
     }
 
@@ -41,12 +41,12 @@ public class ParserDOM {
         try {
             document = builder.parse(new File(PATH));
         } catch (SAXException e) {
-            throw new CustomException("parsing file" + e);
+            throw new CustomException("parsing file", e);
         } catch (IOException e) {
-            throw new CustomException("file is invalid" + e);
+            throw new CustomException("file is invalid", e);
         }
         candies = new HashSet<>();
-        NodeList root = document.getDocumentElement().getElementsByTagName("candy");
+        NodeList root = document.getDocumentElement().getElementsByTagName(CandyXmlNode.CANDY.getTitle());
         for (int i = 0; i < root.getLength(); i++) {
             Element element = (Element) root.item(i);
             candies.add(buildCandy(element));
@@ -54,30 +54,28 @@ public class ParserDOM {
     }
 
     private Candy buildCandy(Element element) {
-        Candy candy = Candy.newBuilderCandy()
-                .setBrand(element.getAttribute("brand"))
-                .setType(CandyType.valueOf((getElementText(element, "type"))))
-                .setEnergy(Integer.parseInt(getElementText(element, "energy")))
-                .setDate(LocalDate.parse(getElementText(element, "date")))
-                .setProduction(getElementText(element, "production"))
+        return Candy.newBuilderCandy()
+                .setBrand(element.getAttribute(CandyXmlNode.BRAND.getTitle()))
+                .setType(CandyType.valueOf((element.getAttribute(CandyXmlNode.TYPE.getTitle())
+                        .replace(" ","_").toUpperCase())))
+                .setEnergy(Integer.parseInt(getElementText(element, CandyXmlNode.ENERGY)))
+                .setDate(LocalDate.parse(getElementText(element, CandyXmlNode.DATE)))
+                .setProduction(getElementText(element, CandyXmlNode.PRODUCTION))
                 .setCandyValue(CandyValue.newBuilderValue()
-                        .setProtein(Integer.parseInt(getElementText(element, "protein")))
-                        .setCarbohydrates(Integer.parseInt(getElementText(element, "carbohydrates")))
-                        .setFats(Integer.parseInt(getElementText(element, "fats")))
+                        .setProtein(Integer.parseInt(getElementText(element, CandyXmlNode.PROTEIN)))
+                        .setCarbohydrates(Integer.parseInt(getElementText(element, CandyXmlNode.CARBOHYDRATES)))
+                        .setFats(Integer.parseInt(getElementText(element, CandyXmlNode.FATS)))
                         .buldCandyValue())
                 .setIngredients(Ingredients.newBuilderIngredients()
-                        .setWater(Integer.parseInt(getElementText(element, "water")))
-                        .setSugar(Integer.parseInt(getElementText(element, "sugar")))
-                        .setFructose(Integer.parseInt(getElementText(element, "fructose")))
-                        .setVanilla(Integer.parseInt(getElementText(element, "vanilla")))
+                        .setWater(Integer.parseInt(getElementText(element, CandyXmlNode.WATER)))
+                        .setSugar(Integer.parseInt(getElementText(element, CandyXmlNode.SUGAR)))
+                        .setFructose(Integer.parseInt(getElementText(element, CandyXmlNode.FRUCTOSE)))
+                        .setVanilla(Integer.parseInt(getElementText(element, CandyXmlNode.VANILLA)))
                         .buildIngredients())
                 .buildCandy();
-        return candy;
     }
 
-    private String getElementText(Element element, String tagName) {
-        return tagName.equals("type") ?
-                element.getElementsByTagName(tagName).item(0).getTextContent().toUpperCase().replace(" ", "_") :
-                element.getElementsByTagName(tagName).item(0).getTextContent();
+    private String getElementText(Element element, CandyXmlNode enumNode) {
+        return element.getElementsByTagName(enumNode.getTitle()).item(0).getTextContent();
     }
 }

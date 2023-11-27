@@ -4,8 +4,7 @@
           xmlns="http://www.example.com/candies"
           xsi:schemaLocation="http://www.example.com/candies candies.xsd">
 
-    <candy brand="LiqueurFills">
-        <type>chocolate</type>
+    <candy  type="chocolate" brand="LiqueurFills">
         <date>2023-11-11</date>
         <production>Fazer</production>
         <energy>350</energy>
@@ -22,8 +21,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="Twix">
-        <type>chocolate</type>
+    <candy brand="Twix" type="chocolate">
         <date>2023-10-12</date>
         <production>Mars Incorporated</production>
         <energy>370</energy>
@@ -40,8 +38,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="GoldCockerel">
-        <type>caramel and lollipops</type>
+    <candy type="caramel and lollipops" brand="GoldCockerel">
         <date>2023-09-19</date>
         <production>Homemade</production>
         <energy>375</energy>
@@ -58,8 +55,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="Kinder">
-        <type>chocolate</type>
+    <candy brand="Kinder" type="chocolate">
         <date>2023-11-02</date>
         <production>Ferrero</production>
         <energy>245</energy>
@@ -76,8 +72,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="KitKat">
-        <type>chocolate</type>
+    <candy brand="KitKat" type="chocolate">
         <date>2023-11-06</date>
         <production>Ferrero</production>
         <energy>460</energy>
@@ -94,8 +89,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="GummiBears">
-        <type>chewy and fruit</type>
+    <candy brand="GummiBears" type="chewy and fruit">
         <date>2023-10-01</date>
         <production>Haribo</production>
         <energy>510</energy>
@@ -112,8 +106,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="ChupaChups">
-        <type>caramel and lollipops</type>
+    <candy brand="ChupaChups" type="caramel and lollipops">
         <date>2023-11-13</date>
         <production>Perfetti Van Melle</production>
         <energy>124</energy>
@@ -130,8 +123,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="RitterSport">
-        <type>chocolate</type>
+    <candy brand="RitterSport" type="chocolate">
         <date>2023-10-16</date>
         <production>Alfred Ritter</production>
         <energy>610</energy>
@@ -148,8 +140,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="GoldKey">
-        <type>caramel and lollipops</type>
+    <candy brand="GoldKey" type="caramel and lollipops">
         <date>2023-11-13</date>
         <production>Red October</production>
         <energy>450</energy>
@@ -166,8 +157,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="MegaDrive">
-        <type>energy</type>
+    <candy brand="MegaDrive" type="energy">
         <date>2023-11-10</date>
         <production>Red October</production>
         <energy>450</energy>
@@ -184,8 +174,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="NewYear">
-        <type>holiday</type>
+    <candy brand="NewYear" type="holiday">
         <date>2023-11-13</date>
         <production>Morozoff</production>
         <energy>450</energy>
@@ -202,8 +191,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="Bounty">
-        <type>chocolate</type>
+    <candy brand="Bounty" type="chocolate">
         <date>2023-11-13</date>
         <production>Mars Incorporated</production>
         <energy>443</energy>
@@ -220,8 +208,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="Mars">
-        <type>chocolate</type>
+    <candy brand="Mars" type="chocolate">
         <date>2023-11-03</date>
         <production>Mars Incorporated</production>
         <energy>453</energy>
@@ -238,8 +225,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="Cherry">
-        <type>chocolate</type>
+    <candy brand="Cherry" type="chocolate">
         <date>2023-11-02</date>
         <production>Spartak</production>
         <energy>459</energy>
@@ -256,8 +242,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="Mentos">
-        <type>chewy and fruit</type>
+    <candy brand="Mentos" type="chewy and fruit">
         <date>2023-11-19</date>
         <production>Perfetti Van Melle</production>
         <energy>159</energy>
@@ -274,8 +259,7 @@
         </ingredients>
     </candy>
 
-    <candy brand="TicTac">
-        <type>caramel and lollipops</type>
+    <candy brand="TicTac" type="caramel and lollipops">
         <date>2023-11-19</date>
         <production>Ferrero</production>
         <energy>250</energy>
