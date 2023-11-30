@@ -1,8 +1,8 @@
 package com.rubnikovich.candies.main;
 
 import com.rubnikovich.candies.exception.CustomException;
-import com.rubnikovich.candies.parser.flagHandler;
-import com.rubnikovich.candies.parser.flagSAX;
+import com.rubnikovich.candies.parser.FlagHandler;
+import com.rubnikovich.candies.parser.FlagSAX;
 import com.rubnikovich.candies.validator.ValidatorSaxXsd;
 
 public class Main {
@@ -21,9 +21,9 @@ public class Main {
 //        staxBuilder.buildSetCandies("files/candies.xml");
 //        staxBuilder.getCandies().forEach(System.out::println);
 
-        flagSAX customSAX = new flagSAX();
+        FlagSAX customSAX = new FlagSAX();
         customSAX.customParseSAX();
-        flagHandler.getInstance().getCandies().forEach(System.out::println);
+        FlagHandler.getInstance().getCandies().forEach(System.out::println);
 
 
     }

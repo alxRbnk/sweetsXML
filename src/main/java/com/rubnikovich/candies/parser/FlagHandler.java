@@ -12,9 +12,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class flagHandler extends DefaultHandler {
+public class FlagHandler extends DefaultHandler {
 
-    private static final flagHandler instance = new flagHandler();
+    private static final FlagHandler instance = new FlagHandler();
     private boolean caloriesFlag = false;
     private boolean dateFlag = false;
     private boolean productionFlag = false;
@@ -30,10 +30,10 @@ public class flagHandler extends DefaultHandler {
     private CandyValue candyValue;
     private Ingredients ingredients;
 
-    private flagHandler() {
+    private FlagHandler() {
     }
 
-    public static flagHandler getInstance() {
+    public static FlagHandler getInstance() {
         return instance;
     }
 
