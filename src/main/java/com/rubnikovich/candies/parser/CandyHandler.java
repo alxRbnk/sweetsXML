@@ -37,9 +37,9 @@ public class CandyHandler extends DefaultHandler {
             currentIngredient = Ingredients.newBuilderIngredients().buildIngredients();
             currentCandy = Candy.newBuilderCandy().setIngredients(currentIngredient).setCandyValue(currentValue).buildCandy();
             if (isCandyType(attrs)) {
-                setAttributes(attrs,1,0);
+                setAttributes(attrs, 1, 0);
             } else {
-                setAttributes(attrs,0,1);
+                setAttributes(attrs, 0, 1);
             }
         } else {
             CandyXmlNode temp = CandyXmlNode.valueOf(qName.toUpperCase());
@@ -84,12 +84,13 @@ public class CandyHandler extends DefaultHandler {
     }
 
     private boolean isCandyType(Attributes attrs) {
+        boolean match = false;
         try {
             CandyType.valueOf(attrs.getValue(0).toUpperCase().replace(" ", "_"));
-            return true;
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
+            match = true;
+        } catch (IllegalArgumentException ignored) {
+          }
+        return match;
     }
 
     private void setAttributes(Attributes attrs, int first, int second) {

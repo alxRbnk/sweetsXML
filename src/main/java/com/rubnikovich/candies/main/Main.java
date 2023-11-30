@@ -1,7 +1,8 @@
 package com.rubnikovich.candies.main;
 
 import com.rubnikovich.candies.exception.CustomException;
-import com.rubnikovich.candies.parser.StaxBuilder;
+import com.rubnikovich.candies.parser.flagHandler;
+import com.rubnikovich.candies.parser.flagSAX;
 import com.rubnikovich.candies.validator.ValidatorSaxXsd;
 
 public class Main {
@@ -16,9 +17,14 @@ public class Main {
 //        saxBuilder.buildSetCandies("files/candies.xml");
 //        saxBuilder.getCandies().forEach(System.out::println);
 
-        StaxBuilder staxBuilder = new StaxBuilder();
-        staxBuilder.buildSetCandies("files/candies.xml");
-        staxBuilder.getCandies().forEach(System.out::println);
+//        StaxBuilder staxBuilder = new StaxBuilder();
+//        staxBuilder.buildSetCandies("files/candies.xml");
+//        staxBuilder.getCandies().forEach(System.out::println);
+
+        flagSAX customSAX = new flagSAX();
+        customSAX.customParseSAX();
+        flagHandler.getInstance().getCandies().forEach(System.out::println);
+
 
     }
 }

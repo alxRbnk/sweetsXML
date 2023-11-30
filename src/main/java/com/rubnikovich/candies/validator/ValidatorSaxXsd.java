@@ -1,17 +1,17 @@
 package com.rubnikovich.candies.validator;
 
-import java.io.*;
-import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Validator;
-
 import com.rubnikovich.candies.exception.CustomException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
+
+import javax.xml.XMLConstants;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import java.io.File;
+import java.io.IOException;
 
 public class ValidatorSaxXsd {
     public static final String FILE_NAME = "files/candies.xml";
@@ -23,16 +23,11 @@ public class ValidatorSaxXsd {
         try {
             Schema schema = factory.newSchema(new File(SCHEMA_NAME));
             Validator validator = schema.newValidator();
-            Source source = new StreamSource(FILE_NAME);
-            validator.validate(source);
-            logger.info(FILE_NAME + " is valid.");
-        } catch (SAXException e) {
-            throw new CustomException("validation " + FILE_NAME
-                    + " is not valid because " + e.getMessage());
-
-        } catch (IOException e) {
-            throw new CustomException(FILE_NAME + " is not valid because "
-                    + e.getMessage());
+            validator.validate(new StreamSource(FILE_NAME));
+            logger.info(FILE_NAME + " is valid");
+        } catch (SAXException | IOException e) {
+            throw new CustomException(("validation " + FILE_NAME
+                    + " is not valid because "), e);
         }
     }
 }

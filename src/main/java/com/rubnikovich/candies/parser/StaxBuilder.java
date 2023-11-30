@@ -1,23 +1,21 @@
 package com.rubnikovich.candies.parser;
 
-import com.google.protobuf.Value;
 import com.rubnikovich.candies.entity.Candy;
 import com.rubnikovich.candies.entity.CandyType;
 import com.rubnikovich.candies.entity.CandyValue;
 import com.rubnikovich.candies.entity.Ingredients;
 import com.rubnikovich.candies.exception.CustomException;
 
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
 
 public class StaxBuilder {
     private Set<Candy> candies;
@@ -79,7 +77,7 @@ public class StaxBuilder {
             }
             throw new CustomException("Unknown element in tag <candy>");
         } catch (XMLStreamException e) {
-            throw new CustomException(" ", e);
+            throw new CustomException("parsing file ", e);
         }
     }
 
@@ -109,9 +107,9 @@ public class StaxBuilder {
             }
             throw new CustomException("Unknown element in tag <Ingredients>");
         } catch (XMLStreamException e) {
-            throw new CustomException(" ", e);
+            throw new CustomException("parsing file", e);
         }
-    }
+    }git 
 
     private CandyValue getXMLValue(XMLStreamReader reader) throws CustomException {
         try {
@@ -138,7 +136,7 @@ public class StaxBuilder {
             }
             throw new CustomException("Unknown element in tag CandyValue");
         } catch (XMLStreamException e) {
-            throw new CustomException(" ", e);
+            throw new CustomException("parsing file", e);
         }
     }
 
@@ -150,7 +148,7 @@ public class StaxBuilder {
                 text = reader.getText();
             }
         } catch (XMLStreamException e) {
-            throw new CustomException(" ", e);
+            throw new CustomException("parsing file", e);
         }
         return text;
     }
