@@ -46,7 +46,7 @@ public class StaxBuilder {
                 }
             }
         } catch (XMLStreamException | IOException e) {
-            throw new CustomException(" ", e);
+            throw new CustomException(e);
         }
     }
 
@@ -77,7 +77,7 @@ public class StaxBuilder {
             }
             throw new CustomException("Unknown element in tag <candy>");
         } catch (XMLStreamException e) {
-            throw new CustomException("parsing file ", e);
+            throw new CustomException(e);
         }
     }
 
@@ -107,9 +107,9 @@ public class StaxBuilder {
             }
             throw new CustomException("Unknown element in tag <Ingredients>");
         } catch (XMLStreamException e) {
-            throw new CustomException("parsing file", e);
+            throw new CustomException(e);
         }
-    }git 
+    }
 
     private CandyValue getXMLValue(XMLStreamReader reader) throws CustomException {
         try {
@@ -136,7 +136,7 @@ public class StaxBuilder {
             }
             throw new CustomException("Unknown element in tag CandyValue");
         } catch (XMLStreamException e) {
-            throw new CustomException("parsing file", e);
+            throw new CustomException(e);
         }
     }
 
@@ -148,7 +148,7 @@ public class StaxBuilder {
                 text = reader.getText();
             }
         } catch (XMLStreamException e) {
-            throw new CustomException("parsing file", e);
+            throw new CustomException(e);
         }
         return text;
     }
