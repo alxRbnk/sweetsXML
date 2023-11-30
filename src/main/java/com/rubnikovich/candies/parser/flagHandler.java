@@ -43,31 +43,32 @@ public class flagHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
-        if (qName.equalsIgnoreCase("candy")) {
+        if (qName.equalsIgnoreCase(CandyXmlNode.CANDY.getTitle())) {
             candyValue = CandyValue.newBuilderValue().buldCandyValue();
             ingredients = Ingredients.newBuilderIngredients().buildIngredients();
             candy = Candy.newBuilderCandy().setCandyValue(candyValue).setIngredients(ingredients).buildCandy();
-            candy.setBrand(attributes.getValue("brand"));
-            candy.setType(CandyType.valueOf(attributes.getValue("type").toUpperCase().replace(" ", "_")));
-        } else if (qName.equalsIgnoreCase("energy")) {
+            candy.setBrand(attributes.getValue(CandyXmlNode.BRAND.getTitle()));
+            candy.setType(CandyType.valueOf(attributes.getValue(CandyXmlNode.TYPE.getTitle())
+                    .toUpperCase().replace(" ", "_")));
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.ENERGY.getTitle())) {
             caloriesFlag = true;
-        } else if (qName.equalsIgnoreCase("date")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.DATE.getTitle())) {
             dateFlag = true;
-        } else if (qName.equalsIgnoreCase("production")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.PRODUCTION.getTitle())) {
             productionFlag = true;
-        } else if (qName.equalsIgnoreCase("protein")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.PROTEIN.getTitle())) {
             proteinFlag = true;
-        } else if (qName.equalsIgnoreCase("carbohydrates")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.CARBOHYDRATES.getTitle())) {
             carbohydratesFlag = true;
-        } else if (qName.equalsIgnoreCase("fats")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.FATS.getTitle())) {
             fatsFlag = true;
-        } else if (qName.equalsIgnoreCase("water")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.WATER.getTitle())) {
             waterFlag = true;
-        } else if (qName.equalsIgnoreCase("sugar")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.SUGAR.getTitle())) {
             sugarFlag = true;
-        } else if (qName.equalsIgnoreCase("fructose")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.FRUCTOSE.getTitle())) {
             fructoseFlag = true;
-        } else if (qName.equalsIgnoreCase("vanilla")) {
+        } else if (qName.equalsIgnoreCase(CandyXmlNode.VANILLA.getTitle())) {
             vanillaFlag = true;
         }
     }
