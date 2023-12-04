@@ -1,19 +1,20 @@
-package com.rubnikovich.candies.jaxb;
+package com.rubnikovich.candies.parser.jaxb;
+
 
 import com.rubnikovich.candies.entity.Candy;
 
-import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @XmlRootElement
-public class JaxbCandies {
-
+public class Candies {
     @XmlElement(name = "candy")
     private ArrayList<Candy> list = new ArrayList<>();
 
-    public JaxbCandies() {
+    public Candies() {
     }
 
     public void setList(ArrayList<Candy> list) {
@@ -24,9 +25,8 @@ public class JaxbCandies {
         return list.add(candy);
     }
 
-    @Override
-    public String toString() {
-        return "Candies list= " + list ;
+    public List<Candy> getCandies() {
+        return Collections.unmodifiableList(list);
     }
 }
 

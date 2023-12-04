@@ -1,5 +1,14 @@
 package com.rubnikovich.candies.entity;
 
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = " ingredients ", propOrder = {"water", "sugar", "fructose", "vanilla"})
 public class Ingredients {
     private int water;
     private int sugar;
@@ -9,7 +18,7 @@ public class Ingredients {
     private Ingredients() {
     }
 
-    public static BuilderIngredients newBuilderIngredients(){
+    public static BuilderIngredients newBuilderIngredients() {
         return new Ingredients().new BuilderIngredients();
     }
 
@@ -62,9 +71,9 @@ public class Ingredients {
         return sb.toString();
     }
 
-    public class BuilderIngredients{
+    public class BuilderIngredients {
 
-        private BuilderIngredients(){
+        private BuilderIngredients() {
         }
 
         public BuilderIngredients setWater(int water) {

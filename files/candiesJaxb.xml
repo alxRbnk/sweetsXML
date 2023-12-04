@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<candies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns="http://www.example.com/candies"
-          xsi:schemaLocation="http://www.example.com/candies candies.xsd">
-
+<candies>
     <candy   brand="LiqueurFills" type="chocolate">
         <date>2023-11-11</date>
         <production>Fazer</production>

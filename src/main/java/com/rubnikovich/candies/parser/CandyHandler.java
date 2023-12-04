@@ -4,6 +4,7 @@ import com.rubnikovich.candies.entity.Candy;
 import com.rubnikovich.candies.entity.CandyType;
 import com.rubnikovich.candies.entity.CandyValue;
 import com.rubnikovich.candies.entity.Ingredients;
+import com.rubnikovich.candies.validator.ValidatorSaxXsd;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -14,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CandyHandler extends DefaultHandler {
-    private static String ELEMENT_CANDY = "candy";
+    private static final String ELEMENT_CANDY = "candy";
     private Set<Candy> candies = new HashSet<>();
     private Candy currentCandy;
     private CandyValue currentValue;
@@ -89,6 +90,7 @@ public class CandyHandler extends DefaultHandler {
             CandyType.valueOf(attrs.getValue(0).toUpperCase().replace(" ", "_"));
             match = true;
         } catch (IllegalArgumentException ignored) {
+            ValidatorSaxXsd.logger.atWarn();
           }
         return match;
     }

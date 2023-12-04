@@ -1,15 +1,37 @@
 package com.rubnikovich.candies.entity;
 
+
+import com.rubnikovich.candies.parser.jaxb.EnumAdapter;
+import com.rubnikovich.candies.parser.jaxb.LocalDateAdapter;
+
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Candy", propOrder = {"date", "production", "energy", "value", "ingredients"})
 public class Candy {
+
+    @XmlAttribute(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
     private String brand;
+    @XmlAttribute(required = true)
+    @XmlJavaTypeAdapter(EnumAdapter.class)
     private CandyType type;
+    @XmlElement(required = true)
     private int energy;
+    @XmlElement(required = true)
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate date;
+    @XmlElement(required = true)
     private String production;
+    @XmlElement(required = true)
     private CandyValue value;
+    @XmlElement(required = true)
     private Ingredients ingredients;
 
     private Candy() {
@@ -100,6 +122,7 @@ public class Candy {
             Candy.this.type = type;
             return this;
         }
+
         public BuilderCandy setEnergy(int energy) {
             Candy.this.energy = energy;
             return this;
@@ -109,6 +132,7 @@ public class Candy {
             Candy.this.date = date;
             return this;
         }
+
         public BuilderCandy setProduction(String production) {
             Candy.this.production = production;
             return this;

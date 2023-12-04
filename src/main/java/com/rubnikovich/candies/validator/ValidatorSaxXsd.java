@@ -14,9 +14,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class ValidatorSaxXsd {
+    public static final Logger logger = LogManager.getLogger();
     public static final String FILE_NAME = "files/candies.xml";
     public static final String SCHEMA_NAME = "files/candies.xsd";
-    public static final Logger logger = LogManager.getLogger();
 
     public static void validate() throws CustomException {
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
